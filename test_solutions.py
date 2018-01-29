@@ -17,6 +17,16 @@ class SolutionTest(unittest.TestCase):
 
         self.assertEqual(solutions.breadth_first(solutions.trimBST(self, root, 1, 3)), [3, 2, 1])
 
+    def test_jewels(self):
+        J1 = "aA"
+        S1 = "aAAbbbb"
+
+        J2 = "z"
+        S2 = "ZZ"
+
+        self.assertEqual(solutions.numJewelsInStones(self, J1, S1), 3)
+        self.assertEqual(solutions.numJewelsInStones(self, J2, S2), 0)
+
 
 if __name__ == '__main__':
     unittest.main()

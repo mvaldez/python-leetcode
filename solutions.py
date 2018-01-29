@@ -114,3 +114,21 @@ def trimBST(self, root, L, R):
     for r in result[1::]:
         insert_val(root, r)
     return root
+
+
+def numJewelsInStones(self, J, S):
+        """
+        You're given strings J representing the types of stones that are
+        jewels, and S representing the stones you have.  Each character
+        in S is a type of stone you have.  You want to know how many of
+        the stones you have are also jewels.
+        :type J: str the jewel
+        :type S: str the stone
+        :rtype: int jewel count
+        """
+        letter_counts = {letter: S.count(letter) for letter in S}
+        stone_count = 0
+        for c in J:
+            if c in letter_counts:
+                stone_count += letter_counts.get(c)
+        return stone_count
