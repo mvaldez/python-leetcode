@@ -27,6 +27,15 @@ class SolutionTest(unittest.TestCase):
         self.assertEqual(solutions.numJewelsInStones(self, J1, S1), 3)
         self.assertEqual(solutions.numJewelsInStones(self, J2, S2), 0)
 
+    def test_callPoints(self):
+        input_1 = ["5","2","C","D","+"]
+        input_2 = ["5","-2","4","C","D","9","+","+"]
+        expected_1 = 30
+        expected_2 = 27
+
+        self.assertEqual(solutions.callPoints(self, input_1), expected_1)
+        self.assertEqual(solutions.callPoints(self, input_2), expected_2)
+
 
 if __name__ == '__main__':
     unittest.main()

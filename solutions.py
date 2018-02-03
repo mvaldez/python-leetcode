@@ -132,3 +132,59 @@ def numJewelsInStones(self, J, S):
             if c in letter_counts:
                 stone_count += letter_counts.get(c)
         return stone_count
+
+
+def callPoints(self, ops):
+        """
+        Given a list of strings, each string can be one of the 4 following types:
+
+        Integer (one round's score): Directly represents the number of points you get in this round.
+
+            "+" (one round's score): Represents that the points you get in this round are the sum of the last two valid round's points.
+            "D" (one round's score): Represents that the points you get in this round are the doubled data of the last valid round's points.
+            "C" (an operation, which isn't a round's score): Represents the last valid round's points you get were invalid and should be removed.
+        :param self:
+        :param ops:
+        :return:
+        """
+        tokens = ["+", "D", "C"]
+        sum = 0
+        valid_input = []
+
+        for op in ops:
+            if op in tokens:
+                if op == "+":
+                    # sum last 2 valid inputs
+                    p = sumTwo(valid_input)
+                    sum += p
+                    valid_input.append(p)
+                if op == "D":
+                    # double the last valid input
+                    if valid_input:
+                        d = valid_input.pop()
+                        sum += d + d
+                        valid_input.append(d)
+                        valid_input.append(d + d)
+                if op == "C":
+                    # substract last valid input
+                    if valid_input:
+                        d = valid_input.pop()
+                        sum -= d
+            else:
+                sum += int(op)
+                valid_input.append(int(op))
+
+        return sum
+
+
+def sumTwo(stack):
+    if not stack:
+        return 0
+    if len(stack) > 1:
+        s1 = stack.pop()
+        s2 = stack.pop()
+        stack.append(s2)
+        stack.append(s1)
+        return s1 + s2
+    if len(stack) == 1:
+        return stack[0]
