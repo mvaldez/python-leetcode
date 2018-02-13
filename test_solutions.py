@@ -37,6 +37,8 @@ class TestSolutions(object):
         assert solutions.callPoints(self, input_1) == expected_1
         assert solutions.callPoints(self, input_2) == expected_2
 
+    def test_findDisappearedNumbers(self):
+        input = [4,3,2,7,8,2,3,1]
+        output = [5,6]
 
-# if __name__ == '__main__':
-#     unittest.main()
+        assert output == solutions.findDisappearedNumbers(self, input)

@@ -188,3 +188,14 @@ def sumTwo(stack):
         return s1 + s2
     if len(stack) == 1:
         return stack[0]
+
+
+def findDisappearedNumbers(self, nums):
+    val = len(nums)
+    s = {n for n in range(1, val+1)}
+    for n in nums:
+        try:
+            s.remove(n)
+        except KeyError:
+            pass
+    return list(s)
