@@ -42,3 +42,10 @@ class TestSolutions(object):
         output = [5,6]
 
         assert output == solutions.findDisappearedNumbers(self, input)
+
+    def test_rotate_string(self):
+        input = 'abcde'
+        output = 'cdeab'
+
+        assert solutions.rotateString(self, input, output)
+

@@ -199,3 +199,19 @@ def findDisappearedNumbers(self, nums):
         except KeyError:
             pass
     return list(s)
+
+
+def rotateString(self, A, B):
+    """
+    :type A: str
+    :type B: str
+    :rtype: bool
+    """
+    if A == B:
+        return True
+    for n in range(len(A)):
+        if B.startswith(A[n:]):
+            tmp = A[n:] + A[:n]
+            return tmp == B
+    return False
+
